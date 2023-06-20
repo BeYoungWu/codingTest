@@ -1,6 +1,6 @@
 package level0;
 
-public class q5 {
+public class q05 {
 
 	public static void main(String[] args) {
 		// 문자열을 정수로 만들기

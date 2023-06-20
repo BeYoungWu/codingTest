@@ -1,6 +1,6 @@
 package level0;
 
-public class q1 {
+public class q01 {
 
 	public static void main(String[] args) {
 		// 문자열로 변환

@@ -1,6 +1,6 @@
 package level0;
 
-public class q6 {
+public class q06 {
 
 	public static void main(String[] args) {
 		// 문자 리스트를 문자열로 변환하기

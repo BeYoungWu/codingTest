@@ -1,6 +1,6 @@
 package level0;
 
-public class q7 {
+public class q07 {
 
 	public static void main(String[] args) {
 		// 정수 부분

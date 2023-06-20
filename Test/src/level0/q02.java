@@ -2,7 +2,7 @@ package level0;
 
 import java.util.Scanner;
 
-public class q2 {
+public class q02 {
 
 	public static void main(String[] args) {
 		// 문자열 출력하기

@@ -1,21 +1,22 @@
 package level0;
 
-public class q3 {
+public class q04 {
 
 	public static void main(String[] args) {
-		// n의 배수
+		// 공배수
 		
-		int num = 100;
+		int number = 100;
 		int n = 2;
+		int m = 3;
 		
 		int answer = 0;
 		
-		if (num%n == 0) {
+		if(number%n == 0 && number%m == 0) {
 			answer = 1;
 		} else {
 			answer = 0;
 		}
-		
+
 	}
 
 }
