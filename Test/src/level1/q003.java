@@ -14,7 +14,7 @@ public class q003 {
 				answer += i;
 			}
 		}
-
+		
 	}
 
 }
