@@ -27,6 +27,7 @@ public class q017 {
 		int sum = 0;
 		List<Integer> list = new ArrayList<>();
 		for (Integer x : map.keySet()) {
+//			System.out.println(map.keySet());
 //			System.out.println(map.get(x));
 			list.add(map.get(x));
 		}
