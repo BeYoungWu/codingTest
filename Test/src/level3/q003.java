@@ -1,7 +1,5 @@
 package level3;
 
-import java.util.PriorityQueue;
-
 public class q003 {
 
 	public static void main(String[] args) {
