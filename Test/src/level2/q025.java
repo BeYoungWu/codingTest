@@ -1,5 +1,8 @@
 package level2;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class q025 {
 
 	public static void main(String[] args) {
@@ -11,20 +14,8 @@ public class q025 {
 		
 		int answer = 0;
 		
-		for (int i=0;i<number.length;i++) {
-			int cnt = 0;
-			for(int j=0;j<want.length;j++) {
-				for (int k=0;k<discount.length;k++) {
-					if (want[j].equals(discount[k])) {
-						cnt++;
-					}
-				}
-			}
-			if (cnt>=number[i]) {
-				answer++;
-			}
-		}
-
+		// 어려워서 나중에 다시
+		
 	}
 
 }
