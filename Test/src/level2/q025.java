@@ -14,7 +14,28 @@ public class q025 {
 		
 		int answer = 0;
 		
-		// 어려워서 나중에 다시
+		Map<String, Integer> wantMap = new HashMap<>();
+		for (int i=0;i<want.length;i++) {
+			wantMap.put(want[i], number[i]);
+		}
+		
+		for (int i=0;i<discount.length-9;i++) {
+			Map<String, Integer> map = new HashMap<>();
+			int cnt = 0;
+			for (int j=i;j<i+10;j++) {
+				map.put(discount[j], map.getOrDefault(discount[j], 0) + 1);
+			}
+			int idx = 0;
+			boolean chk = true;
+			for (String x : map.keySet()) {
+				if (wantMap.get(x)!=map.get(x)) {
+					chk = false;
+					break;
+				}
+				idx++;
+			}
+			answer += chk ? 1 : 0;
+		}
 		
 	}
 
