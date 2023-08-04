@@ -1,7 +1,5 @@
 package test;
 
-import java.io.IOException;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -11,7 +9,7 @@ class Point{
 	int x;
 	int y;
 	
-	Point(int x, int y) {
+	Point(int y, int x) {
 		this.x = x;
 		this.y = y;
 	}
@@ -24,7 +22,7 @@ public class test0203 {
 	static int[][] arr;
 	static int[][] chkArr;
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		String[] maps = {"11001010","11010001","10001001","00001001"};
 
@@ -39,8 +37,10 @@ public class test0203 {
 			String str = maps[i];
 			for (int j=0;j<len2;j++) {
 				arr[i][j] = Character.getNumericValue(str.charAt(j));
+				System.out.print(Character.getNumericValue(str.charAt(j)));
 				chkArr[i][j] = 0;
 			}
+			System.out.println();
 		}
 
 		Set<Integer> set = new HashSet<>();
@@ -52,8 +52,7 @@ public class test0203 {
 				}
 			}
 		}
-		
-		
+		System.out.println(set);
 		System.out.println(answer);
 		
 	}
@@ -64,27 +63,43 @@ public class test0203 {
 		qpoint.offer(new Point(a, b));
 		chkArr[a][b] = 1;
 		cnt++;
-		
 		while (!qpoint.isEmpty()) {
 			Point tmp = qpoint.poll();
 			
 			if (tmp.y < arr.length-1) {
-				
+				if (arr[tmp.y+1][tmp.x]==1 && chkArr[tmp.y+1][tmp.x]!=1) { // 아래
+					qpoint.offer(new Point(tmp.y+1, tmp.x));
+					chkArr[tmp.y+1][tmp.x] = 1;
+					cnt++;
+				}
 			}
 			
 			if (tmp.y > 0) {
-				
+				if (arr[tmp.y-1][tmp.x]==1 && chkArr[tmp.y-1][tmp.x]!=1) {
+					qpoint.offer(new Point(tmp.y-1, tmp.x));
+					chkArr[tmp.y-1][tmp.x] = 1;
+					cnt++;
+				}
 			}
 			
-			if (tmp.x < arr.length-1) {
-				
+			if(tmp.x > 0) {
+				if(arr[tmp.y][tmp.x-1] == 1 && chkArr[tmp.y][tmp.x-1] != 1) { // 좌
+					qpoint.offer(new Point(tmp.y, tmp.x-1));
+					chkArr[tmp.y][tmp.x-1] = 1;
+					cnt++;
+				}				
 			}
 			
-			if (tmp.x > 0) {
-				
+			if(tmp.x < arr.length - 1) {
+				if(arr[tmp.y][tmp.x+1] == 1 && chkArr[tmp.y][tmp.x+1] != 1) { // 우
+					qpoint.offer(new Point(tmp.y, tmp.x+1));
+					chkArr[tmp.y][tmp.x+1] = 1;
+					cnt++;
+				}				
 			}
 			
 		}
+		System.out.println(cnt);
 		return cnt;
 	}
 

@@ -24,7 +24,7 @@ public class softeer03 {
 	static Queue<Point> qpoint = new LinkedList<>();
 	
 	static int[][] arr;
-	static int[][] checkArr;
+	static int[][] chkArr;
 	
 	public static void main(String[] args) throws IOException {
 		// 장애물 인식 프로그램
@@ -35,11 +35,11 @@ public class softeer03 {
 		int n = Integer.parseInt(st.nextToken());
 		
 		arr = new int[n][n];
-		checkArr = new int[n][n];
+		chkArr = new int[n][n];
 		
 		for (int i=0;i<n;i++) {
 			for (int j=0;j<n;j++) {
-				checkArr[i][j] = 0;
+				chkArr[i][j] = 0;
 			}
 		}
 		
@@ -57,7 +57,7 @@ public class softeer03 {
 		for (int i=0;i<n;i++) {
 			for (int j=0;j<n;j++) {
 				// 해당 좌표가 장애물이고, 확인하지 않았던 좌표면 진행
-				if (arr[i][j]==1 && checkArr[i][j]!=1) {
+				if (arr[i][j]==1 && chkArr[i][j]!=1) {
 					int c = line(i, j);
 					list.add(c);
 				}
@@ -76,43 +76,43 @@ public class softeer03 {
 		int cnt = 0;
 		
 		qpoint.offer(new Point(a, b));
-		checkArr[a][b] = 1;
+		chkArr[a][b] = 1;
 		cnt++;
 		while (!qpoint.isEmpty()) {
 			Point tmp = qpoint.poll();
 			
 			// 현재 좌표의 아래 확인
 			if (tmp.y < arr.length-1) { // 맨 밑 제외
-				if (arr[tmp.y+1][tmp.x]==1 && checkArr[tmp.y+1][tmp.x]!=1) { // 아래
+				if (arr[tmp.y+1][tmp.x]==1 && chkArr[tmp.y+1][tmp.x]!=1) { // 아래
 					qpoint.offer(new Point(tmp.y+1, tmp.x));
-					checkArr[tmp.y+1][tmp.x] = 1;
+					chkArr[tmp.y+1][tmp.x] = 1;
 					cnt++;
 				}
 			}
 			
 			// 현재 좌표의 위 확인
 			if (tmp.y > 0) { // 맨 위 제외
-				if (arr[tmp.y-1][tmp.x]==1 && checkArr[tmp.y-1][tmp.x]!=1) {
+				if (arr[tmp.y-1][tmp.x]==1 && chkArr[tmp.y-1][tmp.x]!=1) {
 					qpoint.offer(new Point(tmp.y-1, tmp.x));
-					checkArr[tmp.y-1][tmp.x] = 1;
+					chkArr[tmp.y-1][tmp.x] = 1;
 					cnt++;
 				}
 			}
 			
 			// 현재 좌표의 오른쪽 확인
 			if(tmp.x > 0) { // 맨 오른쪽 제외
-				if(arr[tmp.y][tmp.x-1] == 1 && checkArr[tmp.y][tmp.x-1] != 1) { // 좌
+				if(arr[tmp.y][tmp.x-1] == 1 && chkArr[tmp.y][tmp.x-1] != 1) { // 좌
 					qpoint.offer(new Point(tmp.y, tmp.x-1));
-					checkArr[tmp.y][tmp.x-1] = 1;
+					chkArr[tmp.y][tmp.x-1] = 1;
 					cnt++;
 				}				
 			}
 			
 			// 현재 좌표의 왼쪽 확인
 			if(tmp.x < arr.length - 1) { // 맨 왼쪽 제외
-				if(arr[tmp.y][tmp.x+1] == 1 && checkArr[tmp.y][tmp.x+1] != 1) { // 우
+				if(arr[tmp.y][tmp.x+1] == 1 && chkArr[tmp.y][tmp.x+1] != 1) { // 우
 					qpoint.offer(new Point(tmp.y, tmp.x+1));
-					checkArr[tmp.y][tmp.x+1] = 1;
+					chkArr[tmp.y][tmp.x+1] = 1;
 					cnt++;
 				}				
 			}
