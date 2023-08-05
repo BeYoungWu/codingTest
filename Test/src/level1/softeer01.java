@@ -12,7 +12,7 @@ public class softeer01 {
         int B = sc.nextInt();
         String s = (A > B) ? "A" : (A == B) ? "same" : "B";
         System.out.println(s);
-        
+        sc.close();
 	}
 
 }
