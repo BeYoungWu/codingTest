@@ -40,7 +40,7 @@ public class test0103 {
             if (answer[i] != 0) {
                 answer[i] = 1;
             }
-        }		
+        }
 	}
 
 }
