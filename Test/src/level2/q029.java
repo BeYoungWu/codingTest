@@ -10,15 +10,14 @@ public class q029 {
 		int[][] queries = {{2,2,5,4},{3,3,6,6},{5,1,6,3}};
 		
 		int[] answer = new int[queries.length];
-
 		int minimalsIdx = 0;
 		
 		int[][] square = new int[rows][columns];
-		int idx = 0;
+		int num = 1;
 		for (int i=0;i<rows;i++) {
 			for (int j=0;j<columns;j++) {
-				square[i][j] = idx;
-				idx++;
+				square[i][j] = num;
+				num++;
 			}
 		}
 		
@@ -41,9 +40,27 @@ public class q029 {
 				min = Math.min(min, square[i][y1]);
 				square[i-1][y1] = square[i][y1];
 			}
-			
-		}
 
+			// 숫자를 좌로 이동 (하단)
+			for (int i=y1+1;i<=y2;i++) {
+				min = Math.min(min, square[x2][i]);
+				square[x2][i-1] = square[x2][i];
+			}
+			
+			// 숫자를 아래로 이동 (우측)
+			for (int i=x2-1;i>=x1;i--) {
+				min = Math.min(min, square[i][y2]);
+				square[i+1][y2] = square[i][y2];
+			}
+			
+			square[x1+1][y2] = firstNum;
+			answer[minimalsIdx] = min;
+			minimalsIdx++;
+		}
+		
+		for (int i=0;i<answer.length;i++) {
+			System.out.println(answer[i]);
+		}
 	}
 
 }
