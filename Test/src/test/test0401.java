@@ -59,6 +59,9 @@ public class test0401 {
 	public static int bfs(int[][] cars, int[][] point) {
 		
 		// 아직 미해결 (이미 지나간 곳은 체크하면서, 최소의 빨강차를 반환하는 방법 고민)
+		
+		// 1안 : 목적지까지 최소 거리 구한 다음, 그 거리 만큼 BFS 구현, 목적지에 도달하면서 지나는 빨강차 수 큐에 담음
+		// 1. 목적지까지 최소 거리 구하기
 		Queue<int[]> q = new LinkedList<>();
 		q.add(new int[] {point[0][0], point[0][1], 0});
 		visited[point[0][0]][point[0][1]] = true;
@@ -79,16 +82,11 @@ public class test0401 {
 				int ny = y + dy[i];
 				
 				if (nx>=0 && nx<cars.length && ny>=0 && ny<cars[0].length && cars[nx][ny]!=3) {
-                    if (cars[nx][ny] == 2) {
-                    	red++;
-                    }
-                    visited[nx][ny] = true;
-                    bfs(cars, point);
-                    visited[nx][ny] = false;
+ 				
 				}
-			}
+			}  
 		}
-		return -1; // 도착점에 도달 x
+		return -1; // 도 착점에 도달 x
 	}
 	
 
