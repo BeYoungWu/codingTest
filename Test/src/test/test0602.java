@@ -46,10 +46,5 @@ public class test0602 {
 				}
 			}
 		}
-		
 	}
-	
-	
-	
-
 }
