@@ -24,6 +24,27 @@ public class q005 {
 			answer = cnt;
 			return;
 		}
+		
+		for (int i=0;i<words.length;i++) {
+			if (visited[i]) {
+				continue;
+			}
+			
+			int k = 0;
+			for (int j=0;j<begin.length();j++) {
+				if (begin.charAt(j)==words[i].charAt(j)) {
+					k++;
+				}
+			}
+			
+			if(k==begin.length()-1) {
+				visited[i]=true;
+				dfs(words[i], target, words, cnt + 1);
+				visited[i]=false;
+			}
+			
+		}
+		
 	}
 
 }
